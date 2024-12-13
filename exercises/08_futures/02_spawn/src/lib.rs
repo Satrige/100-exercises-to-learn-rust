@@ -7,6 +7,18 @@ pub async fn echoes(first: TcpListener, second: TcpListener) -> Result<(), anyho
     todo!()
 }
 
+async fn echo(listener: TcpListener) -> Result<(), anyhow::Error> {
+    loop {
+        let (mut socket, _) = listener.accept().await?;
+
+        tokio::spawn(async move {
+            let (mut reader, mut writer) = socket.split();
+
+
+        });
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
